@@ -53,8 +53,8 @@
       {% for greeting in greetings %}
       <div class="row">
         {% if greeting.author %}
-          <b>{{ greeting.author.email }}
-            {% if user and user.user_id() == greeting.author.identity %}
+          <b>{{ greeting.author.identity }}
+            {% if user == greeting.author.identity %}
               (You)
             {% endif %}
           </b> wrote:
@@ -78,7 +78,7 @@
         <input type="submit" value="switch">
       </form>
 
-      <a href="{{ url|safe }}">{{ url_linktext }}</a>
+      <a href="/logout">ログアウト</a>
     </div>
   </body>
 </html>
